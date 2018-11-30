@@ -1,0 +1,15 @@
+1)	WRITE A SQL STATEMENT TO DISPLAY THE LOWEST PAID EMPLOYEE'S (NAME , SALARY , DEPARTMENT NAME)
+
+ANS:	mysql> SELECT E.FIRST_NAME,E.LAST_NAME,MIN(E.SALARY), D.DEPARTMENT_NAME FROM EMPLOYEES E JOIN  DEPARTMENTS D ON E.DEPARTMENT_ID=D.DEPARTMENT_id;
+
+
+2)	LIST MINIMUM SALARY FOR EACH DEPARTMENT
+ANS:	
+mysql> SELECT MIN(salary),first_name, department_id
+    -> From employees
+    -> GROUP BY department_id;
+
+3)	WRITE A QUERY  BASED ON  FOLLOWING RESULT. 
+ANS:	mysql> SELECT e.employee_id,e.first_name,e.job_id,e.salary,e.department_id,d.department_name
+    -> FROM employees e JOIN departments d
+    -> ON e.department_id=d.department_id;
