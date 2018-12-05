@@ -89,12 +89,12 @@ ANS:	mysql> SELECT e.employee_id,e.first_name, d.department_id, d.department_nam
 	20	RESEARCH	ADAMS
 	20	RESEARCH	SMITH
 	20	RESEARCH	SCOTT
-	30	SALES	WARD
-	30	SALES	TURNER
-	30	SALES	ALLEN
-	30	SALES	JAMES
-	30	SALES	BLAKE
-	30	SALES	MARTIN
+	30	SALES		WARD
+	30	SALES		TURNER
+	30	SALES		ALLEN
+	30	SALES		JAMES
+	30	SALES		BLAKE
+	30	SALES		MARTIN
 
 ANS:	mysql> SELECT d.department_id,d.department_name,e.first_name
   	  -> FROM employees e JOIN departments d ON e.department_id=d.department_id
@@ -136,3 +136,19 @@ ANS:	 mysql> SELECT e.employee_id,e.job_id,e.manager_id,MAX(e.salary),d.departme
     -> FROM employees e JOIN departments d
     -> ON e.department_id=d.department_id
     -> GROUP BY d.department_id;
+
+
+
+11)	WRITE A SQL STATEMENT TO DISPLAY THE EMPLOYEE NAME (BOSS) AND NUMBER OF EMPLOYEE (SUBORDINATES) DIRECTLY REPORTING TO HIM?
+
+	BOSS		SUBORDINATES
+	JONES		2
+	FORD		1
+	CLARK		1
+	SCOTT		1
+	BLAKE		5
+	KING		3
+ANS:	mysql> SELECT manager_id AS BOSS,COUNT(employee_id) AS SUBORDINATES
+    -> FROM employees
+    -> GROUP BY manager_id;
+
